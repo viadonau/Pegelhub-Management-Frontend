@@ -54,6 +54,11 @@
               "optimization": false,
               "extractLicenses": false,
               "sourceMap": true
+            },
+            "test": {
+              "optimization": false,
+              "extractLicenses": true,
+              "sourceMap": true
             }
           },
           "defaultConfiguration": "production"
@@ -66,6 +71,9 @@
             },
             "development": {
               "buildTarget": "Pegelhub-Management-Frontend:build:development"
+            },
+            "test": {
+              "buildTarget": "Pegelhub-Management-Frontend:build:test"
             }
           },
           "defaultConfiguration": "development"
@@ -76,23 +84,16 @@
             "buildTarget": "Pegelhub-Management-Frontend:build"
           }
         },
-        "test": {
-          "builder": "@angular-devkit/build-angular:karma",
+        "cypress-comp": {
+          "builder": "@cypress/schematic:cypress",
           "options": {
-            "polyfills": [
-              "zone.js",
-              "zone.js/testing"
-            ],
-            "tsConfig": "tsconfig.spec.json",
-            "inlineStyleLanguage": "scss",
-            "assets": [
-              "src/favicon.ico",
-              "src/assets"
-            ],
-            "styles": [
-              "src/styles.scss"
-            ],
-            "scripts": []
+            "headless": false,
+            "component": true,
+            "watch": true,
+            "devServerTarget": "Pegelhub-Management-Frontend:serve:test",
+            "projectPath": "Pegelhub-Management-Frontend",
+            "configFile": "cypress.config.ts",
+            "tsConfig": "tsconfig.spec.json"
           }
         }
       }
