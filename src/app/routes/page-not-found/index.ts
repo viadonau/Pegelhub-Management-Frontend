@@ -1,0 +1,1 @@
+export { PageNotFoundPage } from './page-not-found.page'
