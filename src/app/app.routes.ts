@@ -8,18 +8,18 @@ export const routes: Routes = [
     },
     {
         path: 'home',
-        loadChildren: () => import('@routes/home/home-routes')
+        loadChildren: () => import('@routes/home/home.routes')
     },
     {
         path: 'dashboard',
-        loadChildren: () => import('@routes/dashboard/dashboard-routes')
+        loadChildren: () => import('@routes/dashboard/dashboard.routes')
     },
     {
         path: 'management',
-        loadChildren: () => import('@routes/mgmt/mgmt-routes')
+        loadChildren: () => import('@routes/mgmt/mgmt.routes')
     },
     {
         path: '**',
-        loadComponent: () => import('./routes/page-not-found').then((mod) => mod.PageNotFoundPage),
+        loadComponent: () => import('@routes/page-not-found').then((mod) => mod.PageNotFoundPage),
     },
 ];
