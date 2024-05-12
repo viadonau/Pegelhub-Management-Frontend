@@ -28,6 +28,7 @@
       "@core/*": ["src/app/core/*"],
       "@routes/*": ["src/app/routes/*"],
       "@shared/*": ["src/app/shared/*"],
+      "@environments/*": ["src/environments/*"],
     }
   },
   "angularCompilerOptions": {

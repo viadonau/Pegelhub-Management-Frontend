@@ -16,7 +16,7 @@ import {MatIcon} from "@angular/material/icon";
 import {NgIf} from "@angular/common";
 import {Connector} from "@shared/domain/models";
 import {firstValueFrom} from "rxjs";
-import {DashboardService} from "@routes/dashboard/dashboard.service";
+import {ConnectorService} from "@shared/services";
 
 @Component({
   selector: 'app-dashboard',
@@ -47,19 +47,17 @@ import {DashboardService} from "@routes/dashboard/dashboard.service";
   styleUrl: './dashboard.page.scss'
 })
 export class DashboardPage implements AfterViewInit, OnInit {
-  private dashboardService = inject(DashboardService);
+  private connectorService = inject(ConnectorService);
 
   protected displayedColumns: string[] = ['id', 'manufacturer', 'configuration'];
-  protected dataSource!: MatTableDataSource<Connector>;
+  protected dataSource = new MatTableDataSource<Connector>();
 
   @ViewChild(MatPaginator) protected readonly paginator!: MatPaginator;
   @ViewChild(MatSort) protected readonly sort!: MatSort;
 
   ngOnInit() {
-    firstValueFrom(this.dashboardService.getConnectors()).then(connectors => {
-      // Assign the data to the data source for the table to render
-      this.dataSource = new MatTableDataSource(connectors);
-    });
+    this.initDataSourceSortingDataAccessor();
+    this.fetchConnectors();
   }
 
   ngAfterViewInit() {
@@ -69,7 +67,28 @@ export class DashboardPage implements AfterViewInit, OnInit {
     }
   }
 
-  applyFilter(event: Event) {
+  private initDataSourceSortingDataAccessor() {
+    this.dataSource.sortingDataAccessor = (item, property) => {
+      switch (property) {
+        case 'manufacturer':
+          return item.manufacturer.organization;
+        default:
+          // @ts-ignore
+          return item[property];
+      }
+    };
+  }
+
+  private fetchConnectors() {
+    firstValueFrom(this.connectorService.getConnectors()).then(connectors => {
+      // Assign the data to the data source for the table to render
+      this.dataSource = new MatTableDataSource(connectors);
+    }).catch(() => {
+      console.error('Failed to fetch connectors');
+    });
+  }
+
+  protected applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
 
