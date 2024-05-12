@@ -17,7 +17,7 @@ import { RouterLink } from "@angular/router";
   styleUrl: './header.component.scss'
 })
 export class HeaderComponent {
-  protected title = 'Pegelhub Management Frontend';
+  protected title = 'Hallo, Max Mustermann!';
 
   @Output() protected readonly sidenavToggle = new EventEmitter();
 

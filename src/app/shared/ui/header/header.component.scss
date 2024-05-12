@@ -16,10 +16,6 @@
     color: lightgray;
   }
 
-  mat-toolbar {
-    border-radius: 3px;
-  }
-
   @media(max-width: 959px) {
     mat-toolbar {
       border-radius: 0;
