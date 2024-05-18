@@ -18,6 +18,16 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
 
 Run `ng test:comp` to execute the component tests via [Cypress](https://docs.cypress.io).
 
-## Further help
+## Linting (WebStorm)
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+The following steps are necessary in order to enable the correct linting settings:
+
+1. Navigate to `Settings > Languages & Frameworks > JavaScript > Code Quality Tools > ESLint`
+2. Either choose `Automatic ESLint configuration` or select the suggested package underneath `Manual ESLint configuration`
+
+## Prettier (WebStorm)
+
+1. Navigate to `Settings > Languages & Frameworks > JavaScript > Prettier`
+2. Choose `Automatic Prettier configuration`
+3. In the list of `Run for files`, add `html` and `scss`
+4. Additionally, you can check `Run on save` to apply prettier after every code change you perform
