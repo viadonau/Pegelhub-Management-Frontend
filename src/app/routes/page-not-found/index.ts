@@ -1,1 +1,1 @@
-export { PageNotFoundPage } from './page-not-found.page'
+export { PageNotFoundPageComponent } from './page-not-found.page'

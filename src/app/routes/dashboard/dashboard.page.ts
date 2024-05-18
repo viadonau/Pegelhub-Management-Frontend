@@ -1,22 +1,27 @@
-import {AfterViewInit, Component, inject, OnInit, ViewChild} from '@angular/core';
-import {MatFormField, MatLabel, MatPrefix} from "@angular/material/form-field";
+import { AfterViewInit, Component, inject, OnInit, ViewChild } from '@angular/core';
+import { MatFormField, MatLabel, MatPrefix } from '@angular/material/form-field';
 import {
   MatCell,
   MatCellDef,
   MatColumnDef,
   MatHeaderCell,
-  MatHeaderCellDef, MatHeaderRow, MatHeaderRowDef, MatNoDataRow, MatRow, MatRowDef,
+  MatHeaderCellDef,
+  MatHeaderRow,
+  MatHeaderRowDef,
+  MatNoDataRow,
+  MatRow,
+  MatRowDef,
   MatTable,
-  MatTableDataSource
-} from "@angular/material/table";
-import {MatInput} from "@angular/material/input";
-import {MatSort, MatSortHeader} from "@angular/material/sort";
-import {MatPaginator} from "@angular/material/paginator";
-import {MatIcon} from "@angular/material/icon";
-import {NgIf} from "@angular/common";
-import {Connector} from "@shared/domain/models";
-import {firstValueFrom} from "rxjs";
-import {ConnectorService} from "@shared/services";
+  MatTableDataSource,
+} from '@angular/material/table';
+import { MatInput } from '@angular/material/input';
+import { MatSort, MatSortHeader } from '@angular/material/sort';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatIcon } from '@angular/material/icon';
+import { NgIf } from '@angular/common';
+import { Connector } from '@shared/domain/models';
+import { firstValueFrom } from 'rxjs';
+import { ConnectorService } from '@shared/services';
 
 @Component({
   selector: 'app-dashboard',
@@ -41,12 +46,12 @@ import {ConnectorService} from "@shared/services";
     MatHeaderRow,
     MatRow,
     MatNoDataRow,
-    NgIf
+    NgIf,
   ],
   templateUrl: './dashboard.page.html',
-  styleUrl: './dashboard.page.scss'
+  styleUrl: './dashboard.page.scss',
 })
-export class DashboardPage implements AfterViewInit, OnInit {
+export class DashboardPageComponent implements AfterViewInit, OnInit {
   private connectorService = inject(ConnectorService);
 
   protected displayedColumns: string[] = ['id', 'manufacturer', 'configuration'];
@@ -73,19 +78,21 @@ export class DashboardPage implements AfterViewInit, OnInit {
         case 'manufacturer':
           return item.manufacturer.organization;
         default:
-          // @ts-ignore
+          // @ts-expect-error allow such access
           return item[property];
       }
     };
   }
 
   private fetchConnectors() {
-    firstValueFrom(this.connectorService.getConnectors()).then(connectors => {
-      // Assign the data to the data source for the table to render
-      this.dataSource = new MatTableDataSource(connectors);
-    }).catch(() => {
-      console.error('Failed to fetch connectors');
-    });
+    firstValueFrom(this.connectorService.getConnectors())
+      .then((connectors) => {
+        // Assign the data to the data source for the table to render
+        this.dataSource = new MatTableDataSource(connectors);
+      })
+      .catch(() => {
+        console.error('Failed to fetch connectors');
+      });
   }
 
   protected applyFilter(event: Event) {
