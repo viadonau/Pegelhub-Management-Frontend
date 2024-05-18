@@ -1,5 +1,5 @@
 import { Route } from "@angular/router";
-import { ManagementPage } from "@routes/mgmt/mgmt.page";
+import { ManagementPageComponent } from "@routes/mgmt/mgmt.page";
 
 export default [
     {
@@ -8,7 +8,7 @@ export default [
             {
                 path: '',
                 pathMatch: 'full',
-                component: ManagementPage,
+                component: ManagementPageComponent,
             },
         ],
     }

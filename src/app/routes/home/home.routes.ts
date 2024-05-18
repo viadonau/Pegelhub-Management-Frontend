@@ -1,5 +1,5 @@
 import { Route } from "@angular/router";
-import { HomePage } from "@routes/home/home.page";
+import { HomePageComponent } from "@routes/home/home.page";
 
 export default [
     {
@@ -8,7 +8,7 @@ export default [
             {
                 path: '',
                 pathMatch: 'full',
-                component: HomePage,
+                component: HomePageComponent,
             },
         ],
     },

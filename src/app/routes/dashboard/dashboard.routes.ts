@@ -1,5 +1,5 @@
 import { Route } from "@angular/router";
-import { DashboardPage } from "./dashboard.page";
+import { DashboardPageComponent } from "./dashboard.page";
 
 export default [
     {
@@ -8,7 +8,7 @@ export default [
             {
                 path: '',
                 pathMatch: 'full',
-                component: DashboardPage,
+                component: DashboardPageComponent,
             },
         ],
     }
