@@ -47,7 +47,6 @@ export class NavComponent implements AfterContentInit, OnInit {
     this.router.events
       .pipe(filter((event): event is NavigationEnd => event instanceof NavigationEnd))
       .subscribe((event: NavigationEnd) => {
-        console.log(event.url);
         this.activeLinkIndex = this.links?.toArray().findIndex((link) => event.url.startsWith(link.routerLink)) ?? 0;
       });
   }
