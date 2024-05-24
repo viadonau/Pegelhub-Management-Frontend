@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, inject, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, HostBinding, inject, OnInit, ViewChild } from '@angular/core';
 import { MatFormField, MatLabel, MatPrefix } from '@angular/material/form-field';
 import {
   MatCell,
@@ -49,7 +49,6 @@ import { ConnectorService } from '@shared/services';
     NgIf,
   ],
   templateUrl: './dashboard.page.html',
-  styleUrl: './dashboard.page.scss',
 })
 export class DashboardPageComponent implements AfterViewInit, OnInit {
   private connectorService = inject(ConnectorService);
@@ -59,6 +58,10 @@ export class DashboardPageComponent implements AfterViewInit, OnInit {
 
   @ViewChild(MatPaginator) protected readonly paginator!: MatPaginator;
   @ViewChild(MatSort) protected readonly sort!: MatSort;
+
+  @HostBinding('class') get class() {
+    return ['dashboard'];
+  }
 
   ngOnInit() {
     this.initDataSourceSortingDataAccessor();

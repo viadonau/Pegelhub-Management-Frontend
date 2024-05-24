@@ -1,11 +1,15 @@
-<mat-sidenav-container>
-    <mat-sidenav #sidenav role="navigation" [autoFocus]="false">
-        <app-nav (sidenavClose)="sidenav.toggle()"></app-nav>
-    </mat-sidenav>
-    <mat-sidenav-content>
-        <app-header (sidenavToggle)="sidenav.toggle()"></app-header>
-        <main>
-            <router-outlet></router-outlet>
-        </main>
-    </mat-sidenav-content>
+<mat-sidenav-container class="sidenav">
+  <mat-sidenav #sidenav role="navigation" [autoFocus]="false">
+    <app-nav (sidenavClose)="sidenav.toggle()">
+      <app-nav-link routerLink="/home" icon="home" label="Home"></app-nav-link>
+      <app-nav-link routerLink="/dashboard" icon="dashboard" label="Dashboard"></app-nav-link>
+      <app-nav-link routerLink="/management" icon="edit" label="Management"></app-nav-link>
+    </app-nav>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <app-header (sidenavToggle)="sidenav.toggle()"></app-header>
+    <main>
+      <router-outlet></router-outlet>
+    </main>
+  </mat-sidenav-content>
 </mat-sidenav-container>

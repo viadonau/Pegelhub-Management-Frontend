@@ -1,0 +1,25 @@
+@use '@angular/material' as mat;
+
+/**
+Custom Styling for the Sidenav Component.
+ */
+@mixin theme($light-theme) {
+  .sidenav {
+    --mat-sidenav-container-background-color: #{mat.get-theme-color($light-theme, primary, 40)};
+
+    height: 100%;
+
+    mat-sidenav-content,
+    mat-sidenav {
+      height: 100%;
+    }
+
+    mat-sidenav {
+      width: 250px;
+    }
+
+    main {
+      padding: 15px;
+    }
+  }
+}

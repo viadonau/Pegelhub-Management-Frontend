@@ -1,0 +1,31 @@
+@use '@angular/material' as mat;
+
+/**
+Custom Styling for the Header Component.
+ */
+@mixin theme($light-theme) {
+  .header {
+    .menu-btn {
+      color: mat.get-theme-color($light-theme, primary, 40);
+      margin-inline-end: 0.5rem;
+    }
+
+    .spacer {
+      flex: 1 1 auto;
+    }
+
+    a {
+      color: black;
+      text-decoration: none;
+    }
+
+    a:hover,
+    a:active {
+      color: mat.get-theme-color($light-theme, secondary, 40);
+    }
+  }
+
+  @media (max-width: 959px) {
+    border-radius: 0;
+  }
+}

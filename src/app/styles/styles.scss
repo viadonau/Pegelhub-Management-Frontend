@@ -1,0 +1,37 @@
+@use '@angular/material' as mat;
+@use 'material';
+@use 'custom';
+
+@import 'bootstrap';
+@import 'themes/pegelhub-theme';
+
+/* TODO: use both fonts once the necessary files have been added
+@font-face {
+  font-family: 'Akkurat-Light';
+  src: url('../pegel2015/fonts/lineto-akkurat-bold.eot') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Akkurat-Bold';
+  src: url('../assets/fonts/Baikal/Baikal-Regular.woff2') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+ */
+
+html,
+body {
+  height: 100%;
+}
+
+html {
+  @include mat.core-theme($light-theme);
+  @include mat.all-component-themes($light-theme);
+  @include custom.theme($light-theme);
+}
+
+body {
+  margin: 0;
+}
