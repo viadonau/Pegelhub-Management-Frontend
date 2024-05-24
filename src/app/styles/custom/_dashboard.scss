@@ -1,0 +1,21 @@
+@use '@angular/material' as mat;
+
+/**
+Custom Styling for the Dashboard Page.
+ */
+@mixin theme($light-theme) {
+  .dashboard {
+    .search {
+      width: 50vw;
+    }
+
+    .no-data-row {
+      padding-block: 1.5rem;
+      text-align: center;
+    }
+
+    .table {
+      --mat-table-background-color: #{mat.get-theme-color($light-theme, surface-bright)};
+    }
+  }
+}

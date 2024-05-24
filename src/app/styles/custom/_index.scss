@@ -1,0 +1,11 @@
+@use 'sidenav';
+@use 'header';
+@use 'dashboard';
+@use 'nav';
+
+@mixin theme($light-theme) {
+  @include sidenav.theme($light-theme);
+  @include header.theme($light-theme);
+  @include dashboard.theme($light-theme);
+  @include nav.theme($light-theme);
+}

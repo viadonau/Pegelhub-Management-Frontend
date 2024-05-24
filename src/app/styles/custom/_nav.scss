@@ -1,0 +1,50 @@
+@use '@angular/material' as mat;
+
+/**
+Custom Styling for the Nav Component.
+ */
+@mixin theme($light-theme) {
+  .nav {
+    .logo {
+      width: 75%;
+      padding: 1.5rem;
+    }
+
+    .nav-item {
+      --mdc-list-list-item-hover-label-text-color: #{mat.get-theme-color($light-theme, on-primary)};
+      --mdc-list-list-item-label-text-color: #{mat.get-theme-color($light-theme, on-primary)};
+
+      text-decoration: none;
+
+      &:first-of-type {
+        margin-block-start: 1rem;
+      }
+
+      &:not(:last-of-type) {
+        margin-block-end: 1rem;
+      }
+
+      &:hover {
+        background: mat.get-theme-color($light-theme, primary, 50);
+      }
+
+      &.active {
+        background: mat.get-theme-color($light-theme, primary, 30);
+      }
+
+      .icon,
+      .label {
+        vertical-align: middle;
+      }
+
+      .icon {
+        margin-inline-end: 0.5rem;
+      }
+
+      .label {
+        display: inline-block;
+        padding-left: 0.25rem;
+      }
+    }
+  }
+}
