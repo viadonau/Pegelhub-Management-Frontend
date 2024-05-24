@@ -21,5 +21,8 @@ jobs:
     - name: Install dependencies
       run: npm install
 
+    - name: Start application
+      run: npm start &
+
     - name: Run Cypress component tests
       run: npm run cypress:run:component
