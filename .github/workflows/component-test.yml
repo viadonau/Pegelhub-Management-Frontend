@@ -24,5 +24,8 @@ jobs:
     - name: Start application
       run: npm start &
 
+    - name: Wait for application to start
+    - run: sleep 10
+
     - name: Run Cypress component tests
-      run: npm run cypress:run:component
+      run: npm run test:comp
