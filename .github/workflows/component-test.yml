@@ -10,19 +10,19 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v4
+      - name: Checkout code
+        uses: actions/checkout@v4
 
-    - name: Install Node.js
-      uses: actions/setup-node@v3
-      with:
-        node-version: '21.6.2'
+      - name: Install Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '21.6.2'
 
-    - name: Install dependencies
-      run: npm install
+      - name: Install dependencies
+        run: npm install
 
-    - name: Start application
-      run: npm start &
+      - name: Start application
+        run: npm start -- --port=4300 &
 
-    - name: Run Cypress component tests
-      run: npm run test:comp
+      - name: Run Cypress component tests
+        run: npm run test:comp
