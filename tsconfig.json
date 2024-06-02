@@ -28,7 +28,7 @@
       "@core/*": ["src/app/core/*"],
       "@routes/*": ["src/app/routes/*"],
       "@shared/*": ["src/app/shared/*"],
-      "@environments/*": ["src/environments/*"],
+      "@environments/*": ["src/environments/*"]
     }
   },
   "angularCompilerOptions": {
@@ -36,5 +36,16 @@
     "strictInjectionParameters": true,
     "strictInputAccessModifiers": true,
     "strictTemplates": true
-  }
+  },
+  "exclude": [
+    "src/app/app.config.ts",
+    "src/app/app.routes.ts",
+    "src/app/core/paginator-translations.ts",
+    "src/app/routes/dashboard/dashboard.routes.ts",
+    "src/app/routes/home/home.routes.ts",
+    "src/app/routes/mgmt/mgmt.routes.ts",
+    "src/app/routes/page-not-found/index.ts",
+    "src/main.ts"
+  ]
 }
+
