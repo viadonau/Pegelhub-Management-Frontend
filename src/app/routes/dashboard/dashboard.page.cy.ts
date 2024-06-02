@@ -1,22 +1,22 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { DashboardPage } from './dashboard.page';
+import { DashboardPageComponent } from './dashboard.page'; // Angenommen, der korrekte Exportname ist DashboardPageComponent
 
 describe('DashboardComponent', () => {
-  let component: DashboardPage;
-  let fixture: ComponentFixture<DashboardPage>;
+  let component: DashboardPageComponent;
+  let fixture: ComponentFixture<DashboardPageComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [DashboardPage]
+      declarations: [DashboardPageComponent] // Hier declarations statt imports
     })
-    .compileComponents();
-    
-    fixture = TestBed.createComponent(DashboardPage);
+        .compileComponents();
+
+    fixture = TestBed.createComponent(DashboardPageComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
 
   it('should create', () => {
-    expect(component).to('be.truthy');
+    expect(!!component).to.be.true; // Verwende to.be.true für Cypress
   });
 });

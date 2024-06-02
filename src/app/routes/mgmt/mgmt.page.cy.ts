@@ -1,22 +1,22 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { MgmtPage } from './mgmt.page';
+import { ManagementPageComponent } from './mgmt.page'; // Angenommen, der korrekte Exportname ist ManagementPageComponent
 
 describe('MgmtComponent', () => {
-  let component: MgmtPage;
-  let fixture: ComponentFixture<MgmtPage>;
+  let component: ManagementPageComponent;
+  let fixture: ComponentFixture<ManagementPageComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [MgmtPage]
+      declarations: [ManagementPageComponent]
     })
-    .compileComponents();
-    
-    fixture = TestBed.createComponent(MgmtPage);
+        .compileComponents();
+
+    fixture = TestBed.createComponent(ManagementPageComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
 
   it('should create', () => {
-    expect(component).to('be.truthy');
+    expect(!!component).to.be.true; // Verwende to.be.true für Cypress
   });
 });

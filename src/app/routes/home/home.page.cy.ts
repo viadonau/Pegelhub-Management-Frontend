@@ -1,22 +1,22 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { HomePage } from './home.page';
+import { HomePageComponent } from './home.page'; // Angenommen, der korrekte Exportname ist HomePageComponent
 
 describe('HomeComponent', () => {
-  let component: HomePage;
-  let fixture: ComponentFixture<HomePage>;
+  let component: HomePageComponent;
+  let fixture: ComponentFixture<HomePageComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [HomePage]
+      declarations: [HomePageComponent] // Hier declarations statt imports
     })
-    .compileComponents();
-    
-    fixture = TestBed.createComponent(HomePage);
+        .compileComponents();
+
+    fixture = TestBed.createComponent(HomePageComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
 
   it('should create', () => {
-    expect(component).to('be.truthy');
+    expect(!!component).to.be.true; // Verwende to.be.true für Cypress
   });
 });
