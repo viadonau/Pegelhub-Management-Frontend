@@ -10,27 +10,16 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
+    - name: Checkout code
+      uses: actions/checkout@v4
 
-      - name: Install Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: '21.6.2'
+    - name: Install Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '21.6.2'
 
-      - name: Install dependencies
-        run: npm install
+    - name: Install dependencies
+      run: npm install --legacy-peer-deps
 
-      - name: Start application
-        run: npm start -- --port=4300 &
-        env:
-          CI: true
-
-      - name: Wait for application to be ready
-        run: |
-          timeout 60 sh -c "until nc -z localhost 4300; do sleep 1; done"
-
-      - name: Run Cypress component tests
-        run: npm run test:comp
-        env:
-          CI: true
+    - name: Run Cypress component test
+      run: npm run cypress:run:component --config-file cypress.config.ts
