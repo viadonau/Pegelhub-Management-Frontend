@@ -9,7 +9,8 @@
     "test:comp": "ng run Pegelhub-Management-Frontend:cypress-comp",
     "lint": "ng lint",
     "lint:fix": "ng lint --fix",
-    "prepare": "husky"
+    "prepare": "husky",
+    "cypress:run:component": "cypress run --component"
   },
   "private": true,
   "dependencies": {
