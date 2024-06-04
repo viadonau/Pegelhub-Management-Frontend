@@ -10,7 +10,8 @@
     "lint": "ng lint",
     "lint:fix": "ng lint --fix",
     "prepare": "husky",
-    "cypress:run:component": "cypress run --component"
+    "cypress:run:component": "cypress run --component",
+    "cypress:run:e2e": "cypress run"
   },
   "private": true,
   "dependencies": {

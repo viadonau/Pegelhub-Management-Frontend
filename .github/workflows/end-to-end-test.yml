@@ -27,7 +27,7 @@ jobs:
       run: npm start &
 
     - name: Wait for application to start
-      run: sleep 30
+      run: sleep 10
 
     - name: End-to-End tests
       run: npm run cypress:run:e2e
