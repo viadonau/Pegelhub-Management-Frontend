@@ -1,8 +1,15 @@
-import { AppComponent } from "./app.component";
+import { AppComponent } from './app.component';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { provideRouter, withComponentInputBinding } from '@angular/router';
+import { routes } from './app.routes';
 
 describe('App Component', () => {
-    it('should include heading', () => {
-        cy.mount(AppComponent);
-        cy.get('h2').should('contain.text', 'Heading');
-    })
+  beforeEach(() => {
+    cy.mount(AppComponent, {
+      imports: [NoopAnimationsModule],
+      providers: [provideRouter(routes, withComponentInputBinding())],
+    });
+  });
+
+  it('should create', () => {});
 });

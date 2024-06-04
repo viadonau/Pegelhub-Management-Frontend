@@ -1,22 +1,12 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { PageNotFoundPageComponent } from './page-not-found.page'; // Angenommen, der korrekte Exportname ist PageNotFoundPageComponent
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { PageNotFoundPageComponent } from '@routes/page-not-found/page-not-found.page'; // Angenommen, der korrekte Exportname ist PageNotFoundPageComponent
 
-describe('PageNotFoundComponent', () => {
-  let component: PageNotFoundPageComponent;
-  let fixture: ComponentFixture<PageNotFoundPageComponent>;
-
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      declarations: [PageNotFoundPageComponent] // Hier declarations statt imports
-    })
-        .compileComponents();
-
-    fixture = TestBed.createComponent(PageNotFoundPageComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
+describe('PageNotFoundPageComponent', () => {
+  beforeEach(() => {
+    cy.mount(PageNotFoundPageComponent, {
+      imports: [NoopAnimationsModule],
+    });
   });
 
-  it('should create', () => {
-    expect(!!component).to.be.true; // Verwende to.be.true für Cypress
-  });
+  it('should create', () => {});
 });

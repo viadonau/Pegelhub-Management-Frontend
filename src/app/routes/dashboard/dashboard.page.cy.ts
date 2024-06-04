@@ -1,22 +1,14 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { DashboardPageComponent } from './dashboard.page'; // Angenommen, der korrekte Exportname ist DashboardPageComponent
+import { DashboardPageComponent } from './dashboard.page';
+import { provideHttpClient, withFetch } from '@angular/common/http';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
-describe('DashboardComponent', () => {
-  let component: DashboardPageComponent;
-  let fixture: ComponentFixture<DashboardPageComponent>;
-
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      declarations: [DashboardPageComponent] // Hier declarations statt imports
-    })
-        .compileComponents();
-
-    fixture = TestBed.createComponent(DashboardPageComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
+describe('DashboardPageComponent', () => {
+  beforeEach(() => {
+    cy.mount(DashboardPageComponent, {
+      imports: [NoopAnimationsModule],
+      providers: [provideHttpClient(withFetch())],
+    });
   });
 
-  it('should create', () => {
-    expect(!!component).to.be.true; // Verwende to.be.true für Cypress
-  });
+  it('should create', () => {});
 });

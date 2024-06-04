@@ -1,22 +1,12 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { ManagementPageComponent } from './mgmt.page'; // Angenommen, der korrekte Exportname ist ManagementPageComponent
+import { ManagementPageComponent } from './mgmt.page';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
-describe('MgmtComponent', () => {
-  let component: ManagementPageComponent;
-  let fixture: ComponentFixture<ManagementPageComponent>;
-
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      declarations: [ManagementPageComponent]
-    })
-        .compileComponents();
-
-    fixture = TestBed.createComponent(ManagementPageComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
+describe('ManagementPageComponent', () => {
+  beforeEach(() => {
+    cy.mount(ManagementPageComponent, {
+      imports: [NoopAnimationsModule],
+    });
   });
 
-  it('should create', () => {
-    expect(!!component).to.be.true; // Verwende to.be.true für Cypress
-  });
+  it('should create', () => {});
 });

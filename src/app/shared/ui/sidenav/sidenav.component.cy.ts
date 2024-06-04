@@ -1,22 +1,15 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { SidenavComponent } from "@shared/ui";
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { SidenavComponent } from '@shared/ui';
+import { routes } from '../../../app.routes';
+import { provideRouter, withComponentInputBinding } from '@angular/router';
 
 describe('SidenavComponent', () => {
-  let component: SidenavComponent;
-  let fixture: ComponentFixture<SidenavComponent>;
-
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      imports: [SidenavComponent]
-    })
-    .compileComponents();
-    
-    fixture = TestBed.createComponent(SidenavComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
+  beforeEach(() => {
+    cy.mount(SidenavComponent, {
+      imports: [NoopAnimationsModule],
+      providers: [provideRouter(routes, withComponentInputBinding())],
+    });
   });
 
-  it('should create', () => {
-    expect(component).to('be.truthy');
-  });
+  it('should create', () => {});
 });
