@@ -64,7 +64,7 @@
             "test": {
               "optimization": false,
               "extractLicenses": true,
-              "sourceMap": true
+              "sourceMap": false
             }
           },
           "defaultConfiguration": "production"
