@@ -1,22 +1,12 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { NavComponent } from "@shared/ui";
+import { NavComponent } from '@shared/ui';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
 describe('NavComponent', () => {
-  let component: NavComponent;
-  let fixture: ComponentFixture<NavComponent>;
-
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      imports: [NavComponent]
-    })
-    .compileComponents();
-    
-    fixture = TestBed.createComponent(NavComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
+  beforeEach(() => {
+    cy.mount(NavComponent, {
+      imports: [NoopAnimationsModule],
+    });
   });
 
-  it('should create', () => {
-    expect(component).to('be.truthy');
-  });
+  it('should create', () => {});
 });

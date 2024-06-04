@@ -1,22 +1,15 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { HeaderComponent } from "@shared/ui";
+import { HeaderComponent } from '@shared/ui';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { provideRouter, withComponentInputBinding } from '@angular/router';
+import { routes } from '../../../app.routes';
 
 describe('HeaderComponent', () => {
-  let component: HeaderComponent;
-  let fixture: ComponentFixture<HeaderComponent>;
-
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      imports: [HeaderComponent]
-    })
-    .compileComponents();
-    
-    fixture = TestBed.createComponent(HeaderComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
+  beforeEach(() => {
+    cy.mount(HeaderComponent, {
+      imports: [NoopAnimationsModule],
+      providers: [provideRouter(routes, withComponentInputBinding())],
+    });
   });
 
-  it('should create', () => {
-    expect(component).to('be.truthy');
-  });
+  it('should create', () => {});
 });

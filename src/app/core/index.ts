@@ -1,1 +1,1 @@
-export { providePaginatorTranslations } from './paginator-translations'
+export { providePaginatorTranslations } from './paginator-translations';

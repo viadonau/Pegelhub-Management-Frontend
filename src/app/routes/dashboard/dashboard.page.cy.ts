@@ -1,22 +1,14 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { DashboardPage } from './dashboard.page';
+import { DashboardPageComponent } from './dashboard.page';
+import { provideHttpClient, withFetch } from '@angular/common/http';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
-describe('DashboardComponent', () => {
-  let component: DashboardPage;
-  let fixture: ComponentFixture<DashboardPage>;
-
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      imports: [DashboardPage]
-    })
-    .compileComponents();
-    
-    fixture = TestBed.createComponent(DashboardPage);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
+describe('DashboardPageComponent', () => {
+  beforeEach(() => {
+    cy.mount(DashboardPageComponent, {
+      imports: [NoopAnimationsModule],
+      providers: [provideHttpClient(withFetch())],
+    });
   });
 
-  it('should create', () => {
-    expect(component).to('be.truthy');
-  });
+  it('should create', () => {});
 });

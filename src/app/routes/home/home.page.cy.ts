@@ -1,22 +1,12 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { HomePage } from './home.page';
+import { HomePageComponent } from './home.page';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
-describe('HomeComponent', () => {
-  let component: HomePage;
-  let fixture: ComponentFixture<HomePage>;
-
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      imports: [HomePage]
-    })
-    .compileComponents();
-    
-    fixture = TestBed.createComponent(HomePage);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
+describe('HomePageComponent', () => {
+  beforeEach(() => {
+    cy.mount(HomePageComponent, {
+      imports: [NoopAnimationsModule],
+    });
   });
 
-  it('should create', () => {
-    expect(component).to('be.truthy');
-  });
+  it('should create', () => {});
 });

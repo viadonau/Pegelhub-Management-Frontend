@@ -1,9 +1,11 @@
-name: End-to-End Test
+---
+name: End-to-End Tests
 
 on:
   push:
-    branches:
-      - main
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
 
 jobs:
   e2e-test:
@@ -11,12 +13,12 @@ jobs:
 
     steps:
     - name: Checkout code
-      uses: actions/checkout@v2
+      uses: actions/checkout@v4
 
-    - name: Install Node.js
-      uses: actions/setup-node@v2
+    - name: Install node.js
+      uses: actions/setup-node@v3
       with:
-        node-version: '14'
+        node-version: '21.6.2'
 
     - name: Install dependencies
       run: npm install
@@ -25,7 +27,7 @@ jobs:
       run: npm start &
 
     - name: Wait for application to start
-      run: sleep 30
+      run: sleep 10
 
-    - name: Run Cypress end-to-end tests
+    - name: End-to-End tests
       run: npm run cypress:run:e2e
