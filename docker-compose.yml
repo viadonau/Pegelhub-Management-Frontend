@@ -1,0 +1,7 @@
+services:
+  pegelhub-management-frontend:
+    image: pegelhub-management-frontend
+    build:
+      dockerfile: Dockerfile
+    ports:
+      - "4202:80"
