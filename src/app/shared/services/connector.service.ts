@@ -1,17 +1,16 @@
-import {inject, Injectable} from "@angular/core";
-import {HttpClient} from "@angular/common/http";
-import {Connector} from "@shared/domain/models";
-import {Observable} from "rxjs";
-import {environment} from "@environments/environment";
+import { inject, Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Connector } from '@shared/domain/models';
+import { Observable } from 'rxjs';
+import { environment } from '@environments/environment';
 
 @Injectable({
-    providedIn: 'root',
+  providedIn: 'root',
 })
 export class ConnectorService {
-    private http = inject(HttpClient);
+  private http = inject(HttpClient);
 
-    getConnectors(): Observable<Connector[]> {
-        // TODO: adjust URL
-        return this.http.get<Connector[]>(`${environment.server}/services/management/connector`);
-    }
+  getConnectors(): Observable<Connector[]> {
+    return this.http.get<Connector[]>(`${environment.apiUrl}/management/connector`);
+  }
 }
