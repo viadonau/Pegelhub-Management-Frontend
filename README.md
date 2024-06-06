@@ -18,6 +18,10 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
 
 Run `ng test:comp` to execute the component tests via [Cypress](https://docs.cypress.io).
 
+## Running End-to-End tests
+
+Run `ng test:e2e` to execute the component tests via [Cypress](https://docs.cypress.io).
+
 ## Linting
 
 Ensure a certain code quality and enforces best-practice rulesets.
