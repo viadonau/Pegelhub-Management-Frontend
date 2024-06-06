@@ -24,4 +24,4 @@ jobs:
       run: npm install
 
     - name: Component tests
-      run: npm run cypress:run:component
+      run: npm run cy:component

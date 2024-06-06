@@ -71,6 +71,9 @@
         },
         "serve": {
           "builder": "@angular/build:dev-server",
+          "options": {
+            "port": 4202
+          },
           "configurations": {
             "production": {
               "buildTarget": "Pegelhub-Management-Frontend:build:production"
@@ -89,6 +92,18 @@
           "options": {
             "headless": false,
             "component": true,
+            "watch": true,
+            "devServerTarget": "Pegelhub-Management-Frontend:serve:test",
+            "projectPath": "Pegelhub-Management-Frontend",
+            "configFile": "cypress.config.ts",
+            "tsConfig": "tsconfig.spec.json"
+          }
+        },
+        "cypress-e2e": {
+          "builder": "@cypress/schematic:cypress",
+          "options": {
+            "headless": false,
+            "component": false,
             "watch": true,
             "devServerTarget": "Pegelhub-Management-Frontend:serve:test",
             "projectPath": "Pegelhub-Management-Frontend",
