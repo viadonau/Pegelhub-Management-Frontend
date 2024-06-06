@@ -30,4 +30,4 @@ jobs:
       run: sleep 10
 
     - name: End-to-End tests
-      run: npm run cypress:run:e2e
+      run: npm run cy:e2e

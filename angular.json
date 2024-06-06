@@ -96,6 +96,18 @@
             "tsConfig": "tsconfig.spec.json"
           }
         },
+        "cypress-e2e": {
+          "builder": "@cypress/schematic:cypress",
+          "options": {
+            "headless": false,
+            "component": false,
+            "watch": true,
+            "devServerTarget": "Pegelhub-Management-Frontend:serve:test",
+            "projectPath": "Pegelhub-Management-Frontend",
+            "configFile": "cypress.config.ts",
+            "tsConfig": "tsconfig.spec.json"
+          }
+        },
         "lint": {
           "builder": "@angular-eslint/builder:lint",
           "options": {
